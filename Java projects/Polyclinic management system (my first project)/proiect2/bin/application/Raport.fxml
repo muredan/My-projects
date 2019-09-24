@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="942.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RaportController">
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="1212.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#backButton" prefWidth="50.0" text="Inapoi" />
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox prefHeight="866.0" prefWidth="1112.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="titleRaport" text="Raport">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-18.0" />
+               </VBox.margin>
+            </Label>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Separator>
+            <HBox prefHeight="205.0" prefWidth="1112.0" spacing="40.0">
+               <children>
+                  <VBox prefHeight="227.0" prefWidth="221.0" spacing="10.0">
+                     <children>
+                        <Label text=" Cautare raport neterminat">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-12.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" />
+                        <TextField fx:id="txtSearchPatientCNP" onKeyReleased="#initializeUnfinishedReportTableView" promptText="CNP pacient" />
+                        <TextField fx:id="txtSearchPatientLastName" onKeyReleased="#initializeUnfinishedReportTableView" promptText="Nume pacient" />
+                        <TextField fx:id="txtSearchPatientFirstName" onKeyReleased="#initializeUnfinishedReportTableView" promptText="Prenume pacient" />
+                        <HBox alignment="CENTER" spacing="20.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#newRaportButton" text="Raport nou" />
+                              <Button mnemonicParsing="false" onAction="#deleteButton" text="Sterge" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <HBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <VBox prefHeight="216.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <TableView fx:id="unfinishedReportTableView" onMouseClicked="#initializeDataRaport" prefHeight="188.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="idRaport" prefWidth="75.0" text="Nr.Raport" />
+                            <TableColumn fx:id="patientCNP" prefWidth="75.0" text="CNP pacient" />
+                              <TableColumn fx:id="patientLastName" prefWidth="75.0" text="Nume pacient" />
+                              <TableColumn fx:id="patientFirstName" prefWidth="75.0" text="Prenume pacient" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label fx:id="errorLabel">
+               <VBox.margin>
+                  <Insets bottom="-16.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="143.0" prefWidth="1129.0" spacing="25.0">
+               <children>
+                  <VBox prefHeight="143.0" prefWidth="185.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="txtPatientCNP" onKeyReleased="#initializePatientName" promptText="CNP pacient" />
+                        <TextField fx:id="txtPatientFirstName" editable="false" prefHeight="25.0" prefWidth="205.0" promptText="Prenume pacient">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="txtPatientLastName" editable="false" promptText="Nume pacient" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="143.0" prefWidth="185.0" spacing="10.0">
+                     <children>
+                        <VBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="txtRecDoctorLastName" promptText="Nume medic recomandant" />
+                              <TextField fx:id="txtRecDoctorFirstName" prefHeight="25.0" prefWidth="187.0" promptText="Prenume medic recomandant" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="medicRaportVBox" spacing="10.0">
+                           <children>
+                              <TextField fx:id="txtNurseLastName" prefHeight="24.0" prefWidth="186.0" promptText="Nume asistent medical" />
+                              <TextField fx:id="txtNurseFirstName" promptText="Prenume asistent medical" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <HBox fx:id="medicRaportHBox" prefHeight="143.0" prefWidth="673.0" spacing="25.0">
+                     <children>
+                        <TextArea fx:id="txtSimptoms" prefHeight="133.0" prefWidth="211.0" promptText="Simptome" wrapText="true" />
+                        <TextArea fx:id="txtDiagnostic" prefHeight="133.0" prefWidth="211.0" promptText="Diagnostic" wrapText="true" />
+                        <TextArea fx:id="txtRecommendation" prefHeight="133.0" prefWidth="211.0" promptText="Recomandari" wrapText="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="20.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <ComboBox fx:id="specialitiesComboBox" onAction="#initializeServicesComboBox" prefWidth="150.0" promptText="Specialitate" />
+                  <ComboBox fx:id="services" prefWidth="150.0" promptText="Investigatii" />
+                  <Button mnemonicParsing="false" onAction="#addServiceResult" text="Adauga" />
+                  <Button mnemonicParsing="false" onAction="#deleteServiceResult" text="Sterge" />
+               </children>
+            </HBox>
+            <TableView fx:id="servicesTableView" prefHeight="279.0" prefWidth="1022.0">
+              <columns>
+                <TableColumn fx:id="investigation" prefWidth="369.0" text="Investigatie" />
+                <TableColumn fx:id="result" prefWidth="556.0" text="Rezultat" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="20.0" right="70.0" />
+               </VBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="15.0" prefWidth="1092.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#saveButton" text="Salveaza" />
+                  <Button mnemonicParsing="false" onAction="#submitButton" text="Finalizare" />
+                  <TextField fx:id="txtSeal" prefHeight="25.0" prefWidth="139.0" promptText="Parafa">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" top="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>

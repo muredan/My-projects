@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="769.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegisterController">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="960.0" spacing="20.0">
+         <children>
+            <HBox spacing="20.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="266.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <VBox.margin>
+                              <Insets bottom="-12.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label text="Inregistrare">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="errorLabel" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <TextField fx:id="txtPatientCNP" promptText="CNP" />
+                        <TextField fx:id="txtPatientLastNameRegister" promptText="Nume" />
+                        <TextField fx:id="txtPatientFirstNameRegister" promptText="Prenume" />
+                        <TextField fx:id="txtPatientAddressRegister" promptText="Adresa" />
+                        <TextField fx:id="txtPatientPhoneRegister" promptText="Telefon" />
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#registerButton" text="Inregistrare" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" />
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="51.0" prefWidth="0.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <VBox alignment="CENTER_LEFT" spacing="8.0">
+                     <children>
+                        <Label text="Cauta">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="-12.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" />
+                        <TextField fx:id="txtPatientLastName" onKeyReleased="#initializeAppointmentTableView" promptText="Nume pacient" />
+                        <TextField fx:id="txtPatientFirstName" onKeyReleased="#initializeAppointmentTableView" promptText="Prenume pacient" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="378.0" prefWidth="960.0" spacing="10.0">
+               <children>
+                  <Label text="Programari">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-13.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefHeight="6.0" prefWidth="325.0" />
+                  <TableView fx:id="appointmentsTableView" editable="true" onMouseClicked="#getPatientNameFromTableView" prefHeight="341.0" prefWidth="960.0">
+                     <columns>
+                        <TableColumn fx:id="doctorLastName" prefWidth="75.0" text="Nume doctor" />
+                        <TableColumn fx:id="doctorFirstName" prefWidth="75.0" text="Prenume doctor" />
+                        <TableColumn fx:id="patientLastName" prefWidth="75.0" text="Nume pacient" />
+                        <TableColumn fx:id="patientFirstName" prefWidth="114.0" text="Prenume pacient" />
+                        <TableColumn fx:id="serviceColumn" prefWidth="96.0" text="Serviciu" />
+                        <TableColumn fx:id="medicalUnitColumn" prefWidth="75.0" text="UM" />
+                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Data" />
+                        <TableColumn fx:id="timeColumn" prefWidth="75.0" text="Ora" />
+                        <TableColumn fx:id="state" prefWidth="75.0" text="Prezentare" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </TableView>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#check" text="Inregistrare &amp; Setare prezenta">
+                           <HBox.margin>
+                              <Insets top="2.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-1.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" top="40.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="952.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#backBurron" text="Inapoi" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" spacing="40.0">
+               <children>
+                  <Label text="Alegeti un modul">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="113.0" prefWidth="500.0" spacing="40.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#goFirstModule" prefHeight="100.0" prefWidth="100.0">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../firstModule.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#goSecondModule" prefHeight="100.0" prefWidth="100.0">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../secondModule.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="medicButton" mnemonicParsing="false" onAction="#goThirdModule" prefHeight="100.0" prefWidth="100.0">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../thirdModule.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets top="71.0" />
+               </padding>
+            </VBox>
+         </children></AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Cont">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#goLogOut" text="Log out" />
+                  <MenuItem mnemonicParsing="false" onAction="#goSeeAcountData" text="Date cont" />
+              </items>
+            </Menu>
+          <Menu fx:id="actionOnUser" mnemonicParsing="false" text="Date utilizatori">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#goAddUserStage" text="Adaugare utilizator" />
+                  <MenuItem mnemonicParsing="false" onAction="#goSearchUserStage" text="Modificare date" />
+                  <MenuItem mnemonicParsing="false" onAction="#goDeleteUserStage" text="Stergere utilizator" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

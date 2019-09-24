@@ -1,0 +1,36 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#titleArea .text{
+	-fx-text-alignment: center;
+	-fx-text-fill: black;
+	-fx-font-style: bold;
+	-fx-font-size: 20px;
+
+}
+
+.text-area .scroll-bar{
+	-fx-opacity: 0;
+}
+#billArea.text{
+	-fx-text-alignment: justify ;
+	-fx-text-fill: black;
+	-fx-font-style: bold;
+	-fx-font-size: 14px;
+}
+#dataArea.text{
+	-fx-text-alignment: justify ;
+	-fx-text-fill: black;
+	-fx-font-style: bold;
+	-fx-font-size: 14px;
+}
+.text-area .content{
+	-fx-background-color: white;
+}
+
+.text-area {
+	-fx-border-color: white;
+	-fx-border-image-width: 0;
+	-fx-border-radius: 0.0 ;
+	-fx-background-color: white ;
+	
+}

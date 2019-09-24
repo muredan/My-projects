@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FirstModuleController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="1071.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Button mnemonicParsing="false" onAction="#backButton" text="Inapoi" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox alignment="BOTTOM_CENTER" prefWidth="1071.0" spacing="70.0">
+         <children>
+            <VBox fx:id="searchBox" prefHeight="796.0" prefWidth="463.0" spacing="20.0">
+               <children>
+                  <Label text="Cauta angajat: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNume" onKeyReleased="#showSeaerchRezult" prefHeight="33.0" prefWidth="200.0" promptText="Nume angajat">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtPrenume" onKeyReleased="#showSeaerchRezult" prefHeight="33.0" prefWidth="285.0" promptText="Prenume angajat">
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtFunction" onKeyReleased="#showSeaerchRezult" prefHeight="33.0" prefWidth="199.0" promptText="Functie">
+                     <VBox.margin>
+                        <Insets right="100.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TableView fx:id="userSearchTableView" onMouseClicked="#initializeTableView" prefHeight="235.0" prefWidth="404.0">
+                     <columns>
+                        <TableColumn fx:id="userCNP" prefWidth="75.0" text="CNP" />
+                        <TableColumn fx:id="userLastName" prefWidth="75.0" text="Nume" />
+                        <TableColumn fx:id="userFirstName" prefWidth="75.0" text="Prenume" />
+                        <TableColumn fx:id="userFunction" prefWidth="75.0" text="Functie" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label text="Orar angajat:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="errorLabel1" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="genericTimeTable" prefHeight="237.0" prefWidth="445.0">
+                          <columns>
+                            <TableColumn fx:id="day" editable="false" prefWidth="52.0" text="Zi" />
+                            <TableColumn fx:id="start" prefWidth="130.0" text="Perioada inceput" />
+                              <TableColumn fx:id="end" prefWidth="75.0" text="Perioada sfarsit" />
+                              <TableColumn fx:id="medicalUnit" prefWidth="75.0" text="Unitate" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button fx:id="modifyGenericTimeTable" mnemonicParsing="false" onAction="#modifyButton" text="Modifica" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="SpecificTimeTableBox" alignment="CENTER" prefHeight="234.0" prefWidth="418.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label text="Orar specific:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="errorLabel2" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="specificTimeTable" prefHeight="141.0" prefWidth="418.0">
+                           <columns>
+                              <TableColumn fx:id="specificDate" editable="false" prefWidth="52.0" text="Data" />
+                              <TableColumn fx:id="specificStart" prefWidth="130.0" text="Perioada inceput" />
+                              <TableColumn fx:id="specificEnd" prefWidth="75.0" text="Perioada sfarsit" />
+                              <TableColumn fx:id="specificMedicalUnit" prefWidth="75.0" text="Unitate" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <VBox fx:id="addSpecificTimeTableBox" spacing="10.0">
+                           <children>
+                              <HBox alignment="CENTER" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#modifySpecificButton" text="Modifica" />
+                                    <Button mnemonicParsing="false" onAction="#deleteSpecificButton" text="Sterge" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="21.0" prefWidth="418.0" spacing="10.0">
+                                 <children>
+                                    <DatePicker fx:id="dateSpecific" prefWidth="120.0" promptText="Data" />
+                                    <TextField fx:id="txtStartSpecific" prefWidth="70.0" promptText="hh:mm:ss" />
+                                    <TextField fx:id="txtEndSpecific" prefWidth="70.0" promptText="hh:mm:ss" />
+                                    <TextField fx:id="txtMedicalUnintSpecific" prefWidth="48.0" promptText="UM" />
+                                    <Button mnemonicParsing="false" onAction="#addSpecificButton" text="Adauga" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="240.0" prefWidth="417.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label text="Concediu angajat:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="errorLabel3" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="vacation" prefHeight="143.0" prefWidth="318.0">
+                          <columns>
+                            <TableColumn fx:id="startVacation" prefWidth="75.0" text="Perioda inceput" />
+                              <TableColumn fx:id="endVacation" prefWidth="75.0" text="Perioada sfarsit" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </TableView>
+                        <VBox fx:id="addVactionBox" alignment="CENTER" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#deleteVacationButton" text="Sterge" />
+                              <HBox alignment="CENTER" spacing="30.0">
+                                 <children>
+                                    <DatePicker fx:id="dateStartVacation" prefWidth="120.0" promptText="Inceput" />
+                                    <DatePicker fx:id="dateEndtVacation" prefWidth="120.0" promptText="Sfarsit" />
+                                    <Button mnemonicParsing="false" onAction="#addVacationButton" text="Adauga" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets top="25.0" />
+         </BorderPane.margin>
+      </HBox>
+   </center>
+</BorderPane>
